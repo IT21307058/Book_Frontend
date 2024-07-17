@@ -10,10 +10,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
+import { AddBookComponent } from './components/add-book/add-book.component';
 
 @NgModule({
   declarations: [
-    AllBooksComponent
+    AllBooksComponent,
+    AddBookComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,49 @@
+<div class="container">
+    <h2>Add Course</h2>
+    <form [formGroup]="bookForm" (ngSubmit)="addBook()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="Title" required />
+            <mat-error *ngIf="bookForm.get('title')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Description</mat-label>
+            <input matInput type="text" placeholder="Description" formControlName="description" />
+            <mat-error *ngIf="bookForm.get('description')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Author</mat-label>
+            <input matInput type="text" placeholder="Author" formControlName="author" />
+            <mat-error *ngIf="bookForm.get('author')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>ISBN</mat-label>
+            <input matInput type="text" placeholder="ISBN" formControlName="isbn" />
+            <mat-error *ngIf="bookForm.get('isbn')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Publication Date</mat-label>
+            <input matInput type="date" placeholder="Publication Date" formControlName="publicationDate" />
+            <mat-error *ngIf="bookForm.get('publicationDate')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Add Book</button>
+        
+    </form>
+</div>
+

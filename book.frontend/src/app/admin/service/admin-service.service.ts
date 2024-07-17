@@ -19,4 +19,8 @@ export class AdminServiceService {
   deleteBook(bookId: number): Observable<any> {
     return this.http.delete(BASIC_URL + 'api/Book/' + bookId);
   }
+
+  addBook(bookDto: any):Observable<any>{
+    return this.http.post(BASIC_URL + 'api/Book', bookDto)
+  }
 }

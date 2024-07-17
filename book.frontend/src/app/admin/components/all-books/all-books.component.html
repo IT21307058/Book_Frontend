@@ -33,7 +33,6 @@
             <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Action</mat-header-cell>
             <mat-cell *matCellDef="let content">
               <button mat-raised-button color="primary" style="margin: 5px;" (click)="redirectToUpdatePage(content.id)">Update</button>
-              <!-- <button mat-raised-button color="accent" style="margin: 5px;" (click)="redirectToUpPage(product.id)">Update Course</button> -->
               <button mat-raised-button color="warn" style="margin: 5px;" style="margin: 10px;" (click)="deleteBook(content.id)">Delete</button>
             </mat-cell>
           </ng-container>
