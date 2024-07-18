@@ -30,7 +30,7 @@ export class UpdateBookComponent {
 
     // Initialize contentForm with form controls
     this.bookForm = this.formBuilder.group({
-      id: ['', Validators.required],
+      id: [{ value: '', disabled: true }, Validators.required],
       title: ['', Validators.required],
       description: ['', Validators.required],
       author: ['', Validators.required],

@@ -5,15 +5,14 @@
     <mat-table #basicTable [dataSource]="contents" class="mat-elevation-z8">
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book ID</mat-header-cell>
-        <mat-cell *matCellDef="let content">{{content.id}}</mat-cell>
+        <mat-cell *matCellDef="let content; let i = index">{{i + 1}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="title">
         <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book Title</mat-header-cell>
         <mat-cell *matCellDef="let content">{{content.title}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="description">
-        <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book
-          Description</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book Description</mat-header-cell>
         <mat-cell *matCellDef="let content">{{content.description}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="author">
@@ -28,7 +27,7 @@
       <ng-container matColumnDef="publicationDate">
         <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book Publish
           Date</mat-header-cell>
-        <mat-cell *matCellDef="let content">{{content.publicationDate}}</mat-cell>
+        <mat-cell *matCellDef="let content">{{content.publicationDate | date:'yyyy-MM-dd'}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="action">
@@ -48,9 +47,9 @@
     </mat-table>
 
     <div class="pagination-controls">
-      <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
-      <span>Page {{ currentPage }} of {{ totalPages }}</span>
-      <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+      <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1"><u>Previous</u></button>
+      <span><b>Page {{ currentPage }} of {{ totalPages }}</b></span>
+      <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages"><u>Next</u></button>
     </div>
 
   </ng-container>

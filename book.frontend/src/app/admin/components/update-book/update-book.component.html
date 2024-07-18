@@ -4,7 +4,7 @@
 
         <mat-form-field>
             <mat-label>ID</mat-label>
-            <input matInput formControlName="id" placeholder="ID" required />
+            <input matInput formControlName="id" placeholder="ID"/>
             <mat-error *ngIf="bookForm.get('id')?.hasError('required')">
                 This input is required!
             </mat-error>
@@ -42,9 +42,18 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field class="form-field">
+        <!-- <mat-form-field class="form-field">
             <mat-label>Publication Date</mat-label>
             <input matInput type="text" placeholder="Publication Date" formControlName="publicationDate" />
+            <mat-error *ngIf="bookForm.get('publicationDate')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field> -->
+        <mat-form-field class="form-field">
+            <mat-label>Publication Date</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Publication Date" formControlName="publicationDate" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="bookForm.get('publicationDate')?.hasError('required')">
                 This input is required!
             </mat-error>

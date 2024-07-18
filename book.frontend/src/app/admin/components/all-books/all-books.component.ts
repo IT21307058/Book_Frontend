@@ -2,9 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminServiceService } from '../../service/admin-service.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-
 
 @Component({
   selector: 'app-all-books',
@@ -19,7 +16,7 @@ export class AllBooksComponent {
   currentPage: number = 1;
   totalPages: number = 1;
 
-  constructor(private route: ActivatedRoute, private adminService: AdminServiceService, private router: Router, private snackBar: MatSnackBar) { }
+  constructor(private adminService: AdminServiceService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getAllBooks();
