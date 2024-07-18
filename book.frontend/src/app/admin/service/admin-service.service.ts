@@ -21,6 +21,14 @@ export class AdminServiceService {
   }
 
   addBook(bookDto: any):Observable<any>{
-    return this.http.post(BASIC_URL + 'api/Book', bookDto)
+    return this.http.post(BASIC_URL + 'api/Book', bookDto);
+  }
+
+  getOneBook(bookId: number): Observable<any> {
+    return this.http.get(BASIC_URL + 'api/Book/' + bookId);
+  }
+
+  updateBook(bookId: number, updates: any): Observable<any> {
+    return this.http.patch(BASIC_URL + 'api/Book/' + bookId, updates);
   }
 }

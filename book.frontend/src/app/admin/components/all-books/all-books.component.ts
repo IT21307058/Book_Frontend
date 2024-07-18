@@ -38,8 +38,8 @@ export class AllBooksComponent {
     });
   }
 
-  redirectToUpdatePage(courseId: number) {
-    this.router.navigate([`/leaner/courses/`, courseId]);
+  redirectToUpdatePage(bookId: number) {
+    this.router.navigate([`/admin/updateBook/`, bookId]);
   }
 
 }

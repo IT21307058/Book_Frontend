@@ -11,11 +11,13 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { AddBookComponent } from './components/add-book/add-book.component';
+import { UpdateBookComponent } from './components/update-book/update-book.component';
 
 @NgModule({
   declarations: [
     AllBooksComponent,
-    AddBookComponent
+    AddBookComponent,
+    UpdateBookComponent
   ],
   imports: [
     CommonModule,

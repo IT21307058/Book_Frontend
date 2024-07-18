@@ -1,45 +1,51 @@
 <div class="container">
-    <h2>Books List</h2>
-    <ng-container>
-    
-        <mat-table #basicTable [dataSource]="contents" class="mat-elevation-z8">
-          <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book ID</mat-header-cell>
-            <mat-cell *matCellDef="let content">{{content.id}}</mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="title">
-            <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book Title</mat-header-cell>
-            <mat-cell *matCellDef="let content">{{content.title}}</mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="description">
-            <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book Description</mat-header-cell>
-            <mat-cell *matCellDef="let content">{{content.description}}</mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="author">
-            <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book Author</mat-header-cell>
-            <mat-cell *matCellDef="let content">{{content.author}}</mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="isbn">
-            <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book ISBN</mat-header-cell>
-            <mat-cell *matCellDef="let content">{{content.isbn}}</mat-cell>
-          </ng-container>
+  <h2>Books List</h2>
+  <ng-container>
 
-          <ng-container matColumnDef="publicationDate">
-            <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book Publish Date</mat-header-cell>
-            <mat-cell *matCellDef="let content">{{content.publicationDate}}</mat-cell>
-          </ng-container>
-      
-          <ng-container matColumnDef="action">
-            <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Action</mat-header-cell>
-            <mat-cell *matCellDef="let content">
-              <button mat-raised-button color="primary" style="margin: 5px;" (click)="redirectToUpdatePage(content.id)">Update</button>
-              <button mat-raised-button color="warn" style="margin: 5px;" style="margin: 10px;" (click)="deleteBook(content.id)">Delete</button>
-            </mat-cell>
-          </ng-container>
-      
-          <mat-header-row *matHeaderRowDef="['id', 'title', 'description', 'author','isbn', 'publicationDate', 'action']"></mat-header-row>
-          <mat-row *matRowDef="let product; columns: ['id', 'title', 'description', 'author','isbn','publicationDate', 'action']"></mat-row>
-        </mat-table>
-      
+    <mat-table #basicTable [dataSource]="contents" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book ID</mat-header-cell>
+        <mat-cell *matCellDef="let content">{{content.id}}</mat-cell>
       </ng-container>
-    </div>
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book Title</mat-header-cell>
+        <mat-cell *matCellDef="let content">{{content.title}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book
+          Description</mat-header-cell>
+        <mat-cell *matCellDef="let content">{{content.description}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="author">
+        <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book Author</mat-header-cell>
+        <mat-cell *matCellDef="let content">{{content.author}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="isbn">
+        <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book ISBN</mat-header-cell>
+        <mat-cell *matCellDef="let content">{{content.isbn}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="publicationDate">
+        <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Book Publish
+          Date</mat-header-cell>
+        <mat-cell *matCellDef="let content">{{content.publicationDate}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Action</mat-header-cell>
+        <mat-cell *matCellDef="let content">
+          <button mat-raised-button color="primary" style="margin: 5px;"
+            (click)="redirectToUpdatePage(content.id)">Update</button>
+          <button mat-raised-button color="warn" style="margin: 5px;" style="margin: 10px;"
+            (click)="deleteBook(content.id)">Delete</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row
+        *matHeaderRowDef="['id', 'title', 'description', 'author','isbn', 'publicationDate', 'action']"></mat-header-row>
+      <mat-row
+        *matRowDef="let product; columns: ['id', 'title', 'description', 'author','isbn','publicationDate', 'action']"></mat-row>
+    </mat-table>
+
+  </ng-container>
+</div>

@@ -1,6 +1,14 @@
 <div class="container">
-    <h2>Add Book</h2>
-    <form [formGroup]="bookForm" (ngSubmit)="addBook()">
+    <h2>Update Book</h2>
+    <form [formGroup]="bookForm" (ngSubmit)="updateBook()">
+
+        <mat-form-field>
+            <mat-label>ID</mat-label>
+            <input matInput formControlName="id" placeholder="ID" required />
+            <mat-error *ngIf="bookForm.get('id')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
 
         <mat-form-field>
             <mat-label>Title</mat-label>
@@ -36,14 +44,13 @@
 
         <mat-form-field class="form-field">
             <mat-label>Publication Date</mat-label>
-            <input matInput type="date" placeholder="Publication Date" formControlName="publicationDate" />
+            <input matInput type="text" placeholder="Publication Date" formControlName="publicationDate" />
             <mat-error *ngIf="bookForm.get('publicationDate')?.hasError('required')">
                 This input is required!
             </mat-error>
         </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit">Add Book</button>
+        <button mat-raised-button color="primary" type="submit">Update Book</button>
         
     </form>
 </div>
-
