@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminServiceService } from '../../service/admin-service.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
@@ -12,6 +14,10 @@ import { AdminServiceService } from '../../service/admin-service.service';
 export class AllBooksComponent {
 
   contents: any[] = [];
+  totalBooks: number = 0;
+  pageSize: number = 5;
+  currentPage: number = 1;
+  totalPages: number = 1;
 
   constructor(private route: ActivatedRoute, private adminService: AdminServiceService, private router: Router, private snackBar: MatSnackBar) { }
 
@@ -20,10 +26,11 @@ export class AllBooksComponent {
 
   }
 
-
   getAllBooks(){
-    this.adminService.getAllBooks().subscribe(res => {
-      this.contents = res;
+    this.adminService.getAllBooks(this.currentPage, this.pageSize).subscribe(res => {
+      this.contents = res.books;
+      this.totalBooks = res.totalBooks;
+      this.totalPages = res.totalPages;
     })
   }
 
@@ -40,6 +47,13 @@ export class AllBooksComponent {
 
   redirectToUpdatePage(bookId: number) {
     this.router.navigate([`/admin/updateBook/`, bookId]);
+  }
+
+  goToPage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.getAllBooks();
+    }
   }
 
 }

@@ -12,8 +12,8 @@ export class AdminServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getAllBooks():Observable<any>{
-    return this.http.get(BASIC_URL + 'api/Book')
+  getAllBooks(pageNumber: number, pageSize: number):Observable<any>{
+    return this.http.get(`https://localhost:7074/api/Book?pageNumber=${pageNumber}&pageSize=${pageSize}`)
   }
 
   deleteBook(bookId: number): Observable<any> {

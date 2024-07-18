@@ -47,5 +47,11 @@
         *matRowDef="let product; columns: ['id', 'title', 'description', 'author','isbn','publicationDate', 'action']"></mat-row>
     </mat-table>
 
+    <div class="pagination-controls">
+      <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+
   </ng-container>
 </div>
